@@ -25,7 +25,12 @@ const server = http.createServer(app);
 // "secure" cookies are silently dropped and login appears to "not work" in prod.
 app.set("trust proxy", 1);
 
-app.use(cors({ origin: CLIENT_URL, credentials: true }));
+app.use(
+  cors({
+    origin: "https://chat-sphere-pearl-phi.vercel.app",
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 const isProd = process.env.NODE_ENV === "production";
